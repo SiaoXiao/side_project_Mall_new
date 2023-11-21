@@ -1,0 +1,22 @@
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-text-fill-color: #323232;
+    -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0) inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  html {
+    @apply font-sans relative w-full max-w-[1920px] min-h-screen m-auto;
+  }
+
+  main {
+    @apply w-full h-full;
+  }
+}

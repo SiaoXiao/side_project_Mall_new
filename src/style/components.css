@@ -1,0 +1,31 @@
+@layer components {
+  .link {
+    @apply transition-colors duration-150 cursor-pointer text-[#6B705C] hover:text-[#B7B7A4];
+  }
+
+  .menuLink {
+    @apply relative cursor-pointer font-medium tracking-wider text-[#6B705C];
+    @apply transition-colors duration-150 hover:text-[#B7B7A4] hover:after:border-[#B7B7A4];
+    @apply after:absolute after:w-3 after:h-3 after:border-[#6B705C] after:border-t-2 after:border-r-2 after:bottom-1/2 after:right-5 after:translate-y-1/2 after:rotate-45;
+    @apply before:absolute before:w-full before:border-[#DDBEA9] before:border-b-2 before:bottom-0 before:left-0;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center;
+    @apply px-6 py-2;
+    @apply border border-transparent rounded-md shadow-md;
+    @apply text-sm font-medium tracking-wider;
+    @apply transition-colors duration-150;
+    @apply disabled:cursor-default;
+  }
+
+  .text {
+    @apply text-base font-normal tracking-wide text-[#6B705C];
+  }
+  .tableText {
+    @apply text-xl tracking-wide text-[#403D39] border border-[#CB997E] px-6 py-2 select-none;
+  }
+  .titleText {
+    @apply text-3xl font-semibold tracking-wider text-[#CB997E];
+  }
+}
