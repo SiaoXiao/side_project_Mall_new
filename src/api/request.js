@@ -1,12 +1,15 @@
 import axios from 'axios'
-import { networkConfig } from '@/api/networkConfig'
+// import { networkConfig } from '@/api/networkConfig'
 import { handleNetworkError } from './tool'
 
 // 創建axios實例
 export function requestService(config) {
   const service = axios.create({
-    baseURL: networkConfig.baseURL,
-    timeout: networkConfig.requestTimeout,
+    baseURL:
+      import.meta.env.VITE_USER_NODE_ENV === 'production'
+        ? 'https://nocodenolife.net/siaosiao/'
+        : '/api',
+    timeout: 30000,
     headers: config.headers,
     transformRequest: [
       (data = config.params) => {
