@@ -1,0 +1,1 @@
+import{g as r,f as n,D as u,Z as i}from"./index-fd57ddf8.js";import{w as a}from"./useNotification-d5b03d5c.js";function S(){const t=r(),o=n(),e=u(()=>t.getters.isLoggedIn);return{isLogin:e,checkLoginStatus:()=>e.value?!0:(a("請先登入會員"),!1),logOut:()=>{i("確定要登出嗎?").then(s=>{s&&(t.commit("RESET_LOGIN_STATUS",!1),o.push("/").then(()=>o.go()))})}}}export{S as u};
