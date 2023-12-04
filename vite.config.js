@@ -11,8 +11,8 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
   const env = loadEnv(mode, fileURLToPath(new URL('./env', import.meta.url)))
 
   return {
-    base: '/side_project_Mall_new/',
-    // base: './',
+    // base: '/side_project_Mall_new/',
+    base: './',
     envDir: path.resolve(__dirname, './env'),
     resolve: {
       alias: {
