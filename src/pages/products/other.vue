@@ -60,18 +60,19 @@ onMounted(async () => {
       其他
     </h2>
 
-    <div class="flex flex-wrap w-full mt-5">
+    <div
+      class="grid w-full grid-cols-2 grid-rows-none gap-2 mt-5 md:grid-rows-4 lg:grid-rows-3 md:grid-cols-3 lg:grid-cols-4"
+    >
       <template v-if="state.goodsList.length > 0">
         <div
           v-for="item in state.goodsList"
           :key="item.ID"
-          class="w-1/2 p-2 cursor-pointer group sm:w-1/3 md:w-1/4 hover:bg-transparent"
+          class="cursor-pointer group hover:bg-transparent"
         >
-          <div class="relative bg-white border rounded">
-            <div class="relative">
-              <picture class="block bg-gray-200 border-b">
+          <div class="overflow-hidden bg-white border rounded-md shadow-lg">
+            <div class="relative pb-[75%] border-b w-full">
+              <picture class="absolute inset-0 block">
                 <img
-                  class="block"
                   :src="
                     item.ImageUrls && item.ImageUrls.length > 0
                       ? item.ImageUrls[0].Url
@@ -79,6 +80,7 @@ onMounted(async () => {
                   "
                   alt="Card"
                   loading="lazy"
+                  class="object-cover object-center w-full h-full"
                 />
               </picture>
               <div
@@ -88,23 +90,23 @@ onMounted(async () => {
               <div
                 class="absolute inset-0 items-center justify-center hidden opacity-0 group-hover:opacity-100 md:flex"
               >
-                <div class="flex gap-5">
-                  <IconsMagnifyingGlass
-                    class="w-8 h-8 rounded-md bg-[#FFFCF2] shadow-sm text-[#403D39] p-0.5 cursor-pointer hover:text-[#FFFCF2] hover:bg-[#403D39] transition-colors duration-150"
-                    @click="handleRouterChange(item)"
-                  />
-                  <CartModal :item="item" />
-                </div>
+                <IconsMagnifyingGlass
+                  class="w-8 h-8 rounded-md bg-[#FFFCF2] shadow-sm text-[#403D39] p-0.5 cursor-pointer hover:text-[#FFFCF2] hover:bg-[#403D39] transition-colors duration-150"
+                  @click="handleRouterChange(item)"
+                />
               </div>
             </div>
-            <div class="p-4 text-center">
-              <h3 class="font-bold text link" @click="handleRouterChange(item)">
-                {{ item.Name }}
-              </h3>
-              <span
-                class="text text-sm text-[#252422] before:content-['NT$'] before:mr-1 before:text-[#252422] mb-4"
-                >{{ item.UnitPrice }}</span
-              >
+
+            <div class="flex flex-col gap-2 px-2 py-3" @click="handleRouterChange(item)">
+              <h3 class="h-12 font-bold text link">{{ item.Name }}</h3>
+              <div class="flex items-center justify-between">
+                <span
+                  class="text text-sm text-[#252422] before:content-['NT$'] before:mr-1 before:text-[#252422]"
+                  >{{ item.UnitPrice }}</span
+                >
+
+                <CartModal :item="item" />
+              </div>
             </div>
           </div>
         </div>

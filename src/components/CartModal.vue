@@ -1,8 +1,9 @@
 <template>
-  <IconsShopping
+  <!-- <IconsShopping
     class="w-8 h-8 rounded-md bg-[#FFFCF2] shadow-sm text-[#403D39] p-0.5 cursor-pointer hover:text-[#FFFCF2] hover:bg-[#403D39] transition-colors duration-150"
-    @click="handleOpenModal"
-  />
+
+  /> -->
+  <IconsPlus class="bg-[#403D39] rounded-full text-[#FFFCF2] w-6 h-6" @click="handleOpenModal" />
 
   <Modal v-model="showCartModal">
     <template #title>
@@ -93,7 +94,8 @@
 </template>
 <script setup>
 import Modal from '@/components/Modal.vue'
-import IconsShopping from '~icons/heroicons/shopping-bag-20-solid'
+import IconsPlus from '~icons/heroicons/plus-20-solid'
+// import IconsShopping from '~icons/heroicons/shopping-bag-20-solid'
 import IconX from '~icons/heroicons-outline/x-mark'
 import useCart from '@/composables/useCart'
 const { buyNow } = useCart()
@@ -107,7 +109,8 @@ const showCartModal = ref(false)
 const selectedSpecs = ref([])
 
 // 開啟購物車彈窗
-const handleOpenModal = () => {
+const handleOpenModal = (event) => {
+  event.stopPropagation()
   showCartModal.value = !showCartModal.value
   console.log('open')
 }

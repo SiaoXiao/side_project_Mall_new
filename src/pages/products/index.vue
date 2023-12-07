@@ -17,28 +17,26 @@ const menuItems = reactive([
         <template #title>商品分類</template>
       </PageHeader>
       <main class="flex flex-col w-full mb-10 md:gap-5 md:flex-row">
-        <ul class="w-1/4 p-3 border-2 border-[#DDBEA9] box-border hidden md:block">
+        <ul class="box-border hidden w-1/4 p-3 md:block">
           <li v-for="item in menuItems" :key="item.to" class="p-3 pb-2 menuLink">
             <RouterLink :to="item.to" class="block">
               {{ item.text }}
             </RouterLink>
           </li>
         </ul>
-        <div
-          class="flex items-center justify-between gap-2 md:hidden border-2 border-b-0 border-[#DDBEA9] box-border"
-        >
+        <div class="box-border flex flex-wrap items-center gap-2 md:hidden">
           <span
             v-for="item in menuItems"
             :key="item.to"
-            class="p-2 font-medium cursor-pointer text"
-            :class="{ 'bg-[#DDBEA9] text-white': route.name === item.name }"
+            class="inset-x-0 bottom-0 p-2 font-medium rounded-md shadow-md cursor-pointer text"
+            :class="{ 'bg-[#DDBEA9] text-white shadow-inner': route.name === item.name }"
           >
             <RouterLink :to="item.to" class="block">
               {{ item.text }}
             </RouterLink>
           </span>
         </div>
-        <div class="w-full md:w-3/4 p-3 border-2 border-[#DDBEA9] box-border h-full min-h-screen">
+        <div class="box-border w-full h-full min-h-screen p-3 md:w-3/4">
           <router-view></router-view>
         </div>
       </main>
